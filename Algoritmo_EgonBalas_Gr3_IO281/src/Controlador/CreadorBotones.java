@@ -1,6 +1,7 @@
 package Controlador;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,6 +30,8 @@ public class CreadorBotones implements ActionListener {
     int[][] maRestricciones = new int[numRestricciones][numVariables + 2];
     String stfObjetivo, natMaxMin;
     String[] stRestricciones;
+    
+    
     
     //Se crea el panel que contiene informacion como titulo y nombres de los desarrolladores
     public JPanel Titulo() {
@@ -310,6 +313,7 @@ public class CreadorBotones implements ActionListener {
         Panel.setBackground(new Color(238,238,238));
         Panel.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         
+              
         lbResultados = new JLabel();
         lbResultados.setText("Resultados");
         lbResultados.setBounds(120, 0, 450, 40);
@@ -643,13 +647,13 @@ public class CreadorBotones implements ActionListener {
             
             ArrayList<String> tablerosFinales = egonBalas.getTableroFinal();
             Object[] arrayAuxiliar = tablerosFinales.toArray();
-            String todosTableros = "<html>";
+            String todosTableros = "<html>" + "<div style=\"text-align:center;\">" + "<table border=\"0\" style=\"margin: 0 auto;\">";
             
             for (Object o : arrayAuxiliar) {
                 todosTableros =  todosTableros + (String) o;
             }
             
-            todosTableros = todosTableros + "<html>";
+            todosTableros = todosTableros + "</table></div><html> ";
             
            
             

@@ -41,6 +41,14 @@ public class MetodoAditivo {
     String nbsp2 = "&nbsp;&nbsp;";
     String nbsp3 = "&nbsp;";
     
+    String tr = "<tr>";
+    String td = "<td>";
+    String trC = "</tr>";
+    String tdC = "</td>";
+    String mi= "&lt=0";
+    
+    
+    
     ArrayList<Integer> valoresZActuales = new ArrayList();
     
     //Algunas estructuras importantes
@@ -66,6 +74,9 @@ public class MetodoAditivo {
         
         //Se inicializa la variable donde se van guardando las infactibilidades
         int infactibilidad = 0;
+        
+        tableroFinal.add( td + "It. 0" + tdC);
+        
         
         //Se imprime un formato de grilla para mostrar por consola la tabla del metodo
         imprimirGrilla(numVariables, numRestricciones);
@@ -100,7 +111,7 @@ public class MetodoAditivo {
             
             //Numero de iteracion
             System.out.println("Iteracion " + numIteracion);
-            tableroFinal.add(p + "Iteracion " + numIteracion + p);
+            tableroFinal.add( td + "It. " + numIteracion + tdC);
             numIteracionesGB = numIteracion;
             //Se imprime nuevamente la grilla
             imprimirGrilla(numVariables, numRestricciones);
@@ -205,23 +216,23 @@ public class MetodoAditivo {
     
     //Metodo utilizado para imprimir la grilla de los tableros
     public void imprimirGrilla(int numVariables, int numRestricciones){
-        String auxGrilla = p;
+        String auxGrilla = tr;
         for(int i = 0; i < numVariables; i++){
             System.out.printf("%-7s","X" + (i+1));
-            auxGrilla = auxGrilla + nbsp + nbsp3 + "X" + (i+1);
+            auxGrilla = auxGrilla + td + "X" + (i+1) + tdC;
         }
         
         for(int i = 0; i < numRestricciones; i++){
             System.out.printf("%-7s","R" + (i+1));
-            auxGrilla = auxGrilla + nbsp + nbsp3 + "R" + (i+1);
+            auxGrilla = auxGrilla + td + "R" + (i+1) + tdC;
         }
         
         System.out.printf("%-7s", "Infact.");
-        auxGrilla = auxGrilla + nbsp + nbsp3 +  "Infact.";
+        auxGrilla = auxGrilla + td +  "Inf." + tdC;
         System.out.printf("%9s", "Z");
-        auxGrilla = auxGrilla + nbsp + nbsp3 + "Z";
+        auxGrilla = auxGrilla + td + "Z" + tdC;
         
-        tableroFinal.add(auxGrilla + p);
+        tableroFinal.add(auxGrilla + trC);
         
         System.out.println("");
     }
@@ -266,28 +277,28 @@ public class MetodoAditivo {
             matrizTablero[X][i] = valoresVariables[i];
         }
         
-        String auxRow = p;
+        String auxRow = tr;
         
         //Se imprimen los resultados
         for (int i = 0; i < (numVariables) ; i++){
             System.out.printf("%-7s",valoresVariables[i]);
-            auxRow = auxRow + nbsp + nbsp2 + valoresVariables[i] + " ";
+            auxRow = auxRow + td + valoresVariables[i] + " " + tdC;
         }
         for (int i = 0; i < numRestricciones ; i++){
             System.out.printf("%-7s",valoresRestricciones[i] + "<=0");
-            auxRow = auxRow + nbsp + nbsp2 + valoresRestricciones[i] + " ";
+            auxRow = auxRow + td + valoresRestricciones[i] + mi + " " + tdC;
         }
         
         System.out.printf("%-7s", infactibilidad);
-        auxRow = auxRow + nbsp + nbsp2 + infactibilidad + " ";
+        auxRow = auxRow + td + infactibilidad + " " + tdC;
         
         System.out.printf("%9s", z);
-        auxRow = auxRow + nbsp + nbsp2 + z + " " + p;
+        auxRow = auxRow + td + z + " " + tdC;
         
         valoresZActuales.add(z);
         System.out.println("");
         
-        tableroFinal.add(auxRow);
+        tableroFinal.add(auxRow + trC);
         
         //Se retorna la infactibilidad
         return infactibilidad;
