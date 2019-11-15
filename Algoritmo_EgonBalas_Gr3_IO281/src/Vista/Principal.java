@@ -34,7 +34,7 @@ public class Principal {
         
         //Se definen las propiedades de la ventana
         ventana.setSize(1390, 745);
-        ventana.setTitle("Metodo aditivo de Egon Balas 5x5 - Mateo Yate & Kevin Malaver - UDistrital");
+        ventana.setTitle("MADEB UD");
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setLocationRelativeTo(null);
         ventana.setLayout(null);

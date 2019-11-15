@@ -45,8 +45,8 @@ public class CreadorBotones implements ActionListener {
         
         //Se crea y añade el label del título
         lbTitulo = new JLabel();
-        lbTitulo.setText("Metodo aditivo de Egon Balas");
-        lbTitulo.setBounds(50, 5, 450, 40);
+        lbTitulo.setText("MADEB UD - Metodo aditivo de Egon Balas");
+        lbTitulo.setBounds(50, 5, 660, 40);
         lbTitulo.setVisible(true);
         lbTitulo.setFont(new java.awt.Font("Roboto", 0, 32));
         lbTitulo.setForeground(Color.WHITE);
